@@ -1,4 +1,5 @@
--- vim.g.mapleader = " ";
+vim.g.mapleader = "\\"
+-- vim.g.maplocalleader = "\\"
 
 vim.keymap.set('i', 'jj', '<ESC>', { noremap = true, silent = true })
 vim.keymap.set('n', 'j', 'gj', { noremap = true, silent = true })
@@ -16,11 +17,13 @@ vim.keymap.set('n', '-', '<C-W>-', { noremap = false, silent = true })
 vim.keymap.set('n', '<M-w>', ':bd!<CR>', { noremap = false, silent = true })
 
 vim.keymap.set('n', '<leader>f', ':Explore<CR>', { noremap = false, silent = true })
-vim.keymap.set('x', '<Leader>p', '\"_dP', { noremap = false, silent = false })
+-- vim.keymap.set('x', '<Leader>p', '\"_dP', { noremap = false, silent = false })
+vim.keymap.set('n', '<C-_>', function() vim.lsp.buf.format({ async = true }) end,
+  { noremap = false, silent = false, desc = 'Format docuement lsp' })
 
 -- git-blame
 vim.api.nvim_set_var('gitblame_enabled', 0)
-vim.keymap.set("n", "<leader>b", "<cmd>GitBlameToggle<cr>", {silent = true, noremap = true})
+vim.keymap.set("n", "<leader>b", "<cmd>GitBlameToggle<cr>", { silent = true, noremap = true })
 
 -- emmit
 vim.api.nvim_set_var('user_emmet_leader_key', '<C-A>')

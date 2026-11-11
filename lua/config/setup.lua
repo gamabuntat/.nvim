@@ -19,6 +19,14 @@ vim.o.smartcase = true
 vim.o.cursorline = true
 vim.o.laststatus = 3
 vim.o.tgc = true
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "markdown", "md" },
+  callback = function()
+    vim.opt_local.wrap = false
+  end,
+})
+
 -- vim.o.redrawtime = 10000
 -- vim.o.synmaxcol = 300
 
